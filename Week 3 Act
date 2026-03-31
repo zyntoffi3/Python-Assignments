@@ -1,0 +1,8 @@
+secret = "user123"
+attempt = input("Enter your password: ")
+
+if attempt == secret:
+    print("Logged in.")
+else:
+    print("Access denied")
+
