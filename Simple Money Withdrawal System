@@ -1,0 +1,34 @@
+def withdrawal_system():
+    balance = 1000.0
+    
+    while True:
+        print(f"\nBalance: ${balance:.2f}")
+        try:
+            amount = float(input("Enter withdrawal amount: "))
+            
+            if amount <= 0:
+                print("Invalid amount.")
+                continue
+
+            if amount > balance:
+                print("Error: Insufficient funds.")
+                print("1. Exit | 2. Check Balance | 3. Retry")
+                choice = input("Option: ")
+                
+                if choice == '1':
+                    break
+                elif choice == '2':
+                    print(f"Current Balance: ${balance:.2f}")
+                    continue
+                else:
+                    continue
+            else:
+                balance -= amount
+                print(f"Success! New balance: ${balance:.2f}")
+                
+        except ValueError:
+            print("Error: Please enter a numeric value.")
+            if input("Try again? (y/n): ").lower() != 'y':
+                break
+
+withdrawal_system()
